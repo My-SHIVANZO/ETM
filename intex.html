@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Naija Luxe, by ETM | African Luxury Lifestyle</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Playfair+Display:wght@500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .adire-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l15 30-15 30L15 30z' fill='%23000666' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .diamond-divider::after {
+            content: '◈';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #fcf9f8;
+            padding: 0 10px;
+            color: #735c00;
+            font-size: 14px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(118, 118, 131, 0.1);
+        }
+        .gold-underline::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #735c00;
+            transition: width .3s;
+            margin: 0 auto;
+        }
+        .gold-underline:hover::after {
+            width: 100%;
+        }
+        .product-card-shadow {
+            box-shadow: 0 10px 30px -5px rgba(0, 6, 102, 0.04);
+            transition: all 0.3s ease;
+        }
+        .product-card-shadow:hover {
+            box-shadow: 0 20px 40px -10px rgba(0, 6, 102, 0.08);
+            transform: translateY(-4px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#000666",
+                        "primary-container": "#1a237e",
+                        "on-primary": "#ffffff",
+                        "secondary": "#735c00",
+                        "secondary-container": "#fed65b",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#1a1b19",
+                        "background": "#fcf9f8",
+                        "surface": "#fcf9f8",
+                        "surface-variant": "#e4e2e1",
+                        "on-surface": "#1b1c1c",
+                        "on-surface-variant": "#454652",
+                        "outline": "#767683",
+                        "outline-variant": "#c6c5d4",
+                        "inverse-surface": "#303030",
+                        "inverse-primary": "#bdc2ff",
+                        "tertiary-container": "#2f302e",
+                        "on-tertiary-container": "#979894",
+                        "secondary-fixed": "#ffe088",
+                        "on-secondary-fixed": "#241a00",
+                        "surface-container": "#f0eded",
+                        "surface-container-high": "#eae7e7",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "stack-unit": "8px",
+                        "container-max": "1440px",
+                        "margin-desktop": "80px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "body-lg": ["Montserrat"],
+                        "body-md": ["Montserrat"],
+                        "label-lg": ["Montserrat"],
+                        "label-sm": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["40px", {"lineHeight": "48px", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-background border-b border-outline-variant z-50 sticky top-0 full-width">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-1 max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+     
+     
+     
+     <!-- logo -->
+<div class="flex items-left gap-3">
+    <img src="logo.png" alt="ETM Logo" class="h-10 w-auto">
+    <span class="font-headline-md text-headline-md font-bold tracking-tighter text-primary">
+        ETM
+    </span>
+</div>
+
+
+<div class="hidden md:flex items-center gap-6">
+<a class="font-label-lg text-label-lg text-primary border-b-2 border-secondary pb-1" href="#home">Home</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#ankara">Ankara Dresses</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#baby">Baby</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#perfume">Perfume</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#hair">Hair</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#events">Event Supplies</a>
+</div>
+</div>
+</nav>
+</header>
+<main> 
+     
+     
+<!-- Hero Section -->
+<section class="relative min-h-screen w-full flex items-center overflow-hidden" id="home">
+     
+     
+ 
+ 
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-black/30 z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-1000 scale-105 hover:scale-100" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC9noXjKID5VrVLMqVBeP-wGyyi64KTLdXIIyA0adZ0nf8qOq8r5USj-lUih2i2PcIaQEuGTAGVwf0W18CWxR70UD_SauZhxDAptBUZjVQH9G5OJi6Xw8l8i4GxOwz80yLM8-PH93wIu2gI1hXplREsgEaPal-XUm43WW0XmESOhADfz1G6S8qYw-g4OodUZCXyoyq484aFgC7Xzy9-9HV89BiOZKSvUjZZs82r_-5t-_XXClYxVcW96BhixO148xJXmv85MIGXO54')"></div>
+</div>
+
+
+<div class="relative z-20 px-margin-desktop w-full max-w-container-max mx-auto">
+<div class="max-w-2xl reveal active">
+<span class="font-label-lg text-label-lg text-white uppercase tracking-widest mb-4 block">Our Ventures</span>
+<h1 class="font-display-lg text-display-lg text-white mb-8 leading-tight">Elevated Heritage for the Modern Soul</h1>
+<div class="flex gap-4">
+
+<button class="border border-white text-white px-10 py-4 font-label-lg text-label-lg uppercase tracking-widest hover:bg-white/10 transition-all active:scale-95">Our Story</button>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- Business Pillars (Bento Grid Anchor) -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto adire-pattern">
+<div class="text-center mb-16 reveal">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">The World of Naija Luxe</h2>
+<div class="relative h-px w-32 bg-outline-variant mx-auto my-6 diamond-divider"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Discover our curated lifestyle selection, where tradition meets contemporary craftsmanship across five bespoke pillars.</p>
+</div>
+<div class="grid grid-cols-12 gap-6 h-[800px]">
+<a class="col-span-12 md:col-span-7 h-full group relative overflow-hidden reveal" href="#ankara">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-500 z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDqf4SsxeVMfaToXFtCgMuf_zCo4i4NHnlbx4QAqkJYhqXI_21wSA-z6gOnOJwAXh99s9fL5oqVkZpMX04ImWvLYQKfK0eUs4I5pO7UeurTHTQUODAIToIrpJ6d43Nho2oicyteWE60FROE2X8qt5vj5DBX31NEhB_kByYHrCmg8kYAVzMqaWcJCEAIu9DO5H1wEN0QEoPu7GveWRfFTZiCtscLuV5xcROVoOO7y9H-vY4NUPYMi14nMmOxbg8E9qwX54SiFRuCmRM')"></div>
+<div class="absolute bottom-10 left-10 z-20 text-white">
+<h3 class="font-headline-md text-headline-md mb-2">Ankara Couture</h3>
+<p class="font-label-lg text-label-lg uppercase border-b border-white inline-block pb-1">Explore Couture</p>
+</div>
+</a>
+<a class="col-span-12 md:col-span-5 h-full group relative overflow-hidden reveal" href="#baby">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-500 z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCv6l59Bc3vrzUmZ-ZcLj_2j9c0dBJsWJMe0Q6hNmhdcz5umZjc9-6SXf1NL4bmOAl0d7ardZ8PHDaiRH0PIDo3dwrgIw8AEHLjSMm_3jPs9wxW38EKFUOqTWAYxlz5xDbGrQVV8v0i9hIbqkfZsZ1OKd6CO1sQ3ILJP7_dWlYKM-5sMGaKPnj-AtjkJxa4juktz5KANjGQ2_9X02ho-JlmhwjV74M6giuwxLAZe1omuFS82jE-Oru4Ls2MgW9GAzdUtSjnDZ_0J5w')"></div>
+<div class="absolute bottom-10 left-10 z-20 text-white">
+<h3 class="font-headline-md text-headline-md mb-2">Baby</h3>
+<p class="font-label-lg text-label-lg uppercase border-b border-white inline-block pb-1">View Collection</p>
+</div>
+</a>
+<a class="col-span-12 md:col-span-4 h-full group relative overflow-hidden reveal" href="#perfume">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-500 z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDEd9yXGob995lPIcWXvoSVK8kGvlMUOFcGaYjMSYLSIZwE2w_-ywNCETQejzgqSw3p4sMoRN1HWI-wWUgCYxfjD4Ay9CAYGl2YEDA__wxbGeNoAQc8ZHb9pGy9e0Lh1UAXwvDMGkSO_Vq3FSB_OeQYTf4hXCSZ4kWAkI_6iLzm6hPj4d9TDdcCcLxPsytwl4QCxXxrLokxmrIk-y8ZFdu_ipsOCQhMaSlTdxCPvCQj1QU2XeNCUsz5-v-yAziez-zCcAUZg8aApBc')"></div>
+<div class="absolute bottom-10 left-10 z-20 text-white">
+<h3 class="font-headline-md text-headline-md mb-2">Perfume</h3>
+<p class="font-label-lg text-label-lg uppercase border-b border-white inline-block pb-1">Shop Scent</p>
+</div>
+</a>
+<a class="col-span-12 md:col-span-4 h-full group relative overflow-hidden reveal" href="#hair">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-500 z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCF6nkB4czXxtC2-HksINZIc-wLAXVuuJx_UQM40k7cvOn_UtXcOZAka6CTsjcgHORxUfDRy7o4O0bkHeAdnCMLQI-vDiaZVHnSBB_rZ7TswJiN7hloE84s8FDATpaWCfXU0fHH1sMRJQiac6zNM3n9V1rp6rAw3fcOVpLuMDZE__H1CBtd_V9AT3IJk4d3UD_mtWSipVYxdh4Vc0bePaGtwCadxWD2PhvEVLKAg5ar4lUMNMyZD5p6LxqmSugSrIDKPBoFn14-vDA')"></div>
+<div class="absolute bottom-10 left-10 z-20 text-white">
+<h3 class="font-headline-md text-headline-md mb-2">Hair</h3>
+<p class="font-label-lg text-label-lg uppercase border-b border-white inline-block pb-1">Discover Styles</p>
+</div>
+</a>
+<a class="col-span-12 md:col-span-4 h-full group relative overflow-hidden reveal" href="#events">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-500 z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCrUg_Gzhaha1auVJ_EIGTHg04lW2YNykKyWP4h8qOkoZ83d-lvaVPwUC5HKZMa0NiKS7sfp1dhhJvYjaESEYjNBwgkYMklLmIzCed_OFBeF91lMsm5iO8lvoZxcQwJDTq0zxP7ew5ScAje5LEDJRaQPruzgVwb_88C-vF4evFfBtjel71a89G5S9DH_QCR4ZplG2w1hDmlAaPb-MQ8ZwNDsKkYfz-i14Uf7yaJbPgZFzsiU2589fH1dHH9XG2OUC5CNNZrZcAaoZw')"></div>
+<div class="absolute bottom-10 left-10 z-20 text-white">
+<h3 class="font-headline-md text-headline-md mb-2">Events</h3>
+<p class="font-label-lg text-label-lg uppercase border-b border-white inline-block pb-1">Curate Event</p>
+</div>
+</a>
+</div>
+</section>
+<!-- Ankara Couture Section -->
+<section class="py-24 bg-surface-container-lowest" id="ankara">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16 reveal">
+<span class="font-label-lg text-label-lg text-secondary tracking-widest uppercase mb-4 block">New Season</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Ankara Couture Collection</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Experience the fusion of heritage and haute couture. Our curated Ankara collection redefines traditional patterns for the modern global aesthetic.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group reveal">
+<div class="aspect-[3/4] bg-surface-container overflow-hidden mb-6 product-card-shadow relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0z8Y_pLzpxyZQaB7VIC3ywtNybaobsRnY6aLqN8QGiSQ6oceLzzf_d3WnwlB6c4p9qsKQzv5JJQIH4aVNBWpbMUbKyrjgcWAk_3wpZTc24Z_4prQ4Dl4l11Eb5Rm66l1EUk63gdlJOgJWLQIqEgO6Jrp6BK7AsIxRwB79BEmfP1BQnkWSjcZLELn53M9wyr_6MGvbm-qXGAuxs_ikyAtmGuq4-3fcTpaJ2Z6ntmlDXx68Mrv4ew3WZDQqiFMgKMrIaVses_HQuYk"/>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-primary text-secondary-fixed font-label-lg text-label-lg px-8 py-3 uppercase tracking-widest shadow-xl">View Details</button>
+</div>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-[24px] text-primary mb-1">The Oba Wrap Dress</h3>
+<p class="font-label-lg text-label-lg text-secondary">Get now</p>
+</div>
+</div>
+<div class="group reveal">
+<div class="aspect-[3/4] bg-surface-container overflow-hidden mb-6 product-card-shadow relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiP1ROhEAnXV_x56EuzZ5OOm-0B47e5NJo5nltFWgGujMvQmgexLRcqrH64bZAQOqGZcSJy1107Be-Dji0HbFT09HsVEIhuZTG2wVzvvUcs91qDFLysb9XLWXRx7U2Zlll4hITsLAwSAXxYZFB9XBov63G3auon_Vg7ANVAS-vlOXVFFQSSFtXavGIxp4dVfS_ZwKsi7JBtqpHVL0fT7CswP6tqeX40_VZ_Mus_THCCD9h_EZiCBJ4euJDfW8FxTHv3baO6AG4zbE"/>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-primary text-secondary-fixed font-label-lg text-label-lg px-8 py-3 uppercase tracking-widest shadow-xl">View Details</button>
+</div>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-[24px] text-primary mb-1">Eko Nights Gown</h3>
+<p class="font-label-lg text-label-lg text-secondary">Get now</p>
+</div>
+</div>
+<div class="group reveal">
+<div class="aspect-[3/4] bg-surface-container overflow-hidden mb-6 product-card-shadow relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFrfl2r0NbkscgMwoM-QeXVBg_SPOGKRqftnDPME523cbsQYpVwTU3XLTMUM2_vrcW1Hj5GHZW5kcBzORCUfrCiTVVtvJRKssVi5ci9uW0hNkcer5p10X75YiVdf3oZKSX9YnwnJpGAUPuk-imvhX-Nng_Hmh2pdoU8vGzBOgVzDWKDsSwzr_Ok3z-PqSMbOemE7tQ4XXtiQhZWh-uwyEGzzHJDff3YeyoVtKUJcfqPTl9mQNFQudRdjbrF-VOxR440olH5F_jFzw"/>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-primary text-secondary-fixed font-label-lg text-label-lg px-8 py-3 uppercase tracking-widest shadow-xl">View Details</button>
+</div>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-[24px] text-primary mb-1">The Gala Mermaid Dress</h3>
+<p class="font-label-lg text-label-lg text-secondary">Get now</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Perfume Boutique -->
+<section class="py-24 bg-background" id="perfume">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center mb-24">
+<div class="md:col-span-5 reveal">
+<span class="font-label-lg text-label-lg text-secondary tracking-[0.2em] uppercase">Eaux de Parfum</span>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mt-4 mb-6 leading-tight">Oud of the Caliphate</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">A majestic fusion of rare Nigerian Agarwood and smoked amber, captured in a hand-blown crystalline vessel inspired by Benin bronze craftsmanship.</p>
+<button class="bg-primary text-on-primary px-10 py-4 font-label-lg text-label-lg uppercase hover:bg-primary-container transition-all">Add to Collection</button>
+</div>
+<div class="md:col-span-7 reveal">
+<div class="relative h-[600px] overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ0iUwlhTSTDvMl8pfNQJFvah08_hLOVY8mlLdww-EcnMaAZpxc4x23Z2rIYcesR0l9Wp3FjLexjeIo7XrKtgvAn6eut0yjk9Y_ypuPH-qDCRKAeI93GFk0VypC0BsR5TjZ0z61HkSMPfNz9VWrxdfd7cSa9cbAi-CPFnD60LBrtqeHFjwU0J2aDS9tTN8e1d4LYg5gGcibTTKLyD5ooTvQby545EwtT8Mji6lDFVSaf2MSFb4YraXnNOaR4IK-MO4gYlvmwObNuc"/>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="group cursor-pointer reveal">
+<div class="aspect-[4/5] bg-surface-container mb-6 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8R9TMLLCkynXIMkDFjXAdSV4M_W2zBIpkC7aEtdLSXTj2GhA8Bjxb5lMHa9n1R01QSKBfTeESbt3RpoxJrsjTrojAQPSzR0XueVvUtgrxOaeb42PfZh-Ao2aewp1ux7GKA5lFAi7uK9d-Z8_reeI4ijEYwVeBmQoJ5B5MpAtZvfT0RphBFi0S-BS-NZmrf-sbWYkgwU0IucucuP9YvrFcPvTIMr656FL8UmXxc7HTbU7wd0ZUGoqcS1nd2pSOZkK1Hp4r6EKlK58"/>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-[24px] mb-1">Zaria Rose</h3>
+<p class="font-label-sm text-secondary tracking-widest uppercase mb-2">Floral &amp; Musk</p>
+</div>
+</div>
+<div class="group cursor-pointer reveal">
+<div class="aspect-[4/5] bg-surface-container mb-6 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtgdf2-5wsZ_7q8vtSmDH_0R4DReWXQWRg7IbXqFMRFCkbo36NfKWiU0Q-z1dphajkrba45fqQzhe3xS15DBcoaWlbo5EQIj9JMkx1f2x6HUh5tWYGZzq5J-g3ZyTKKwXE7WvQP4h8-Gkf31iR-o3IB_smeq9g13BiEQ-v0BLHAHWG40ZQ--_NJcEZCEijX2nnHWCkQufYMtcrcG4CISNrllvwQ8nHBw1vQMY_enbbY0SAl-I7YstzL6xZAcazbUpFjJXUaRPqDsw"/>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-[24px] mb-1">Ibadan Heat</h3>
+<p class="font-label-sm text-secondary tracking-widest uppercase mb-2">Spicy &amp; Earthy</p>
+</div>
+</div>
+<div class="group cursor-pointer reveal">
+<div class="aspect-[4/5] bg-surface-container mb-6 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWFBy6p-TtLyCOs6YsRpUVnscMMrH9NVz8rbASMgKu0_LybQtWZbid0UzLRjoOQl849XKXCWk0VCfB3VIX2ipfZ5U3xGpnjou6KqZzWkpGjnbfuSa3fRDMUzAhEbuH0Q9XQJp6Z78xGerx4Z9KWBTXFneI4Akjs0hXzeCO5LPGoYdtJRalnaWzX0vnQmugvIWwGMb0XgnHu50Czk1JOdY827oUnmgOLgUPEBgTJA3LZ8LNi2qLQl_ErQMlagRMUbPHtyRqgN6IFGk"/>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-[24px] mb-1">Atlantic Breeze</h3>
+<p class="font-label-sm text-secondary tracking-widest uppercase mb-2">Fresh &amp; Aquatic</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Placeholder Sections for Baby & Hair -->
+<section class="py-24 bg-surface-container-low border-y border-outline-variant" id="baby">
+<div class="px-margin-desktop max-w-container-max mx-auto text-center reveal">
+<span class="font-label-lg text-label-lg text-secondary uppercase tracking-widest mb-4 block">Coming Soon</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Baby Collection</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto mb-10">Soft textures and traditional prints for the next generation of style. Sign up for early access to our luxury childrenswear launch.</p>
+<button class="border border-primary text-primary px-10 py-4 font-label-lg text-label-lg uppercase tracking-widest hover:bg-primary hover:text-white transition-all">Notify Me</button>
+</div>
+</section>
+<section class="py-24 bg-surface-container-lowest" id="hair">
+<div class="px-margin-desktop max-w-container-max mx-auto text-center reveal">
+<span class="font-label-lg text-label-lg text-secondary uppercase tracking-widest mb-4 block">Coming Soon</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Premium Hair</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto mb-10">Flawless textures and architectural styling. Our signature wig collection is being meticulously crafted for the uncompromising woman.</p>
+<button class="border border-primary text-primary px-10 py-4 font-label-lg text-label-lg uppercase tracking-widest hover:bg-primary hover:text-white transition-all">Notify Me</button>
+</div>
+</section>
+<!-- Event Artistry -->
+<section class="py-24 bg-background" id="events">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16 reveal">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Our Signature Packages</h2>
+<div class="w-12 h-1 bg-secondary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 h-auto md:h-[600px] mb-24">
+<div class="md:col-span-8 group relative overflow-hidden bg-surface-container shadow-sm reveal">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_nmZf8zhYgZiQR46DIxItQOPd_JA9jlbTdIb2QFoLvPqcrXvr7RonybyZ5W5QNCmesTxgyAg-ea8bWl51L_9SQr0XPY5aMVzhdOL7y5ntvHaAsBtk5msVNHkqrZGKj_sOwfrLefmJxAnNloDYa903MfnAyui7bCjyDgazrYaNyIA6Yvja752TZHb4guLkaoFTiQ2ZbOK6-aLpmsyw9DsEgcz6sX1ImFk2xG2UcYSYMrFL0AScH8oHiEWGUPNxgvY07C_oiKXS5cs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-12">
+<h3 class="font-headline-md text-headline-md text-white mb-2">The Royal Nuptials</h3>
+<p class="text-white/80 font-body-md mb-6 max-w-md">Comprehensive planning and supply for traditional and white weddings, ensuring cultural authenticity with a luxury finish.</p>
+<a class="text-secondary-fixed font-label-lg text-label-lg flex items-center gap-2 group/link" href="#">VIEW DETAILS <span class="material-symbols-outlined group-hover/link:translate-x-2 transition-transform">arrow_forward</span></a>
+</div>
+</div>
+<div class="md:col-span-4 group relative overflow-hidden bg-surface-container shadow-sm reveal">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5ZnAQ0dOIW6_Jr90b6x6jINHGwyECXdWKIV_UgSQiqoOXnMgwuovnWnaFmGMBaTS5G9llROUq-BxpC885C91mVjkgUIP6LvBElA8wS_PFBoyE6D4A3bGJK4xQGINNQDHBXvjZCmLOjgQOTKhDDcOUpZFomcfFqR6YVPJcc8Fq9soSejfa_o-Ug6s-E3pynfnZSwbafwFikzKH43TEpkxXZtQdQEMO7bRzsWDVvnFSL09AyjLux8Mgva6fq3N57LDy94WsO5qNWOU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-12">
+<h3 class="font-headline-md text-headline-md text-white mb-2">Executive Galas</h3>
+<p class="text-white/80 font-body-md mb-6">Precision-engineered corporate environments designed to reflect your brand's prestige.</p>
+<a class="text-secondary-fixed font-label-lg text-label-lg flex items-center gap-2 group/link" href="#">INQUIRE <span class="material-symbols-outlined group-hover/link:translate-x-2 transition-transform">arrow_forward</span></a>
+</div>
+</div>
+</div>
+<div class="mb-16 flex justify-between items-center reveal">
+<h2 class="font-headline-lg text-headline-lg text-primary">The Lagos Portfolio</h2>
+<a class="gold-underline font-label-lg text-label-lg text-secondary" href="#">VIEW ARCHIVE</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+<div class="shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white">
+<img class="w-full aspect-[4/3] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo0BMnyqQGeB6rWPOvh-IuqufwZNKoMINvFucF_phHN8NO00cazjvZcPil1Z1J083F3VSDTdgkjF-EcpkY3ZCKlvXh-JP6IB3JQREpEJayB5gSkjksvDK4J-oCV_v7GKM6yckyQhU3qWcuFPYb6rPvrefChVE_R-gji0n0fwe35CT3SqQ7cQWfa_RrK4lUMHmFguqc6YM5MLPu3CUvIWCm2FN2BhTEmifIoyu-FL9lrMGQ75GCvgxLjYU0iYDWNBpL1p6BHbJRA0g"/>
+<div class="p-6">
+<span class="font-label-sm text-label-sm text-secondary">IKOYI WATERFRONT</span>
+<h5 class="font-headline-md text-[20px] text-primary mt-2">The Emerald Soirée</h5>
+</div>
+</div>
+<div class="shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white">
+<img class="w-full aspect-[4/3] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_S6GnguPi57AN_fLjQAaQxiPHUg0CF2nxbgixVAr518FI3rdnU5vyBXPZbH2IYjnvjKg-BmCyScJrK0jLjbRB_egA2HaGmaYBK-VxXIO4z9fhuYNlvdh98XIuMfXoxApESOiHRayLuCDCIv8U0rryexJ0IsQ-3l-DANb9rwOLjIsFA3kDtKiRzgOXuf-6eSep8ccrjwtW-jKkWmArxDT98Q8Dc_FLyHYqm-EUif40iSmf8-xUjlWozziBoGF0vRjg3qqh_IYe1Ik"/>
+<div class="p-6">
+<span class="font-label-sm text-label-sm text-secondary">EKO HOTEL</span>
+<h5 class="font-headline-md text-[20px] text-primary mt-2">The Diamond Union</h5>
+</div>
+</div>
+<div class="shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white">
+<img class="w-full aspect-[4/3] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsoOi4GreOL77wI-AX4UJiNrQZ-meADKDjxQZOLW2E4Zn2jlmJO6ERQMmz6oUQLVqg9MJ1ZpscY-tBB-pG-GCfcz4OobQOdsmcDAybWq-5tCkIzUQKM2RChvAIXlhTCbiaT0B-j4XCiUevF2K1m8ekx5McS8h-fh_qSSoXvu88g1NhqJ-rwrhW4x51mEXDWkuui31MudqqUDuRsIFwv5umZTXRGU8nSAidB7cZLKq_zH-lwumrgFLWrpH-0HshesmBU0XnNW9WRqg"/>
+<div class="p-6">
+<span class="font-label-sm text-label-sm text-secondary">VICTORIA ISLAND</span>
+<h5 class="font-headline-md text-[20px] text-primary mt-2">Techno-Luxe Launch</h5>
+</div>
+</div>
+<div class="shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white">
+<img class="w-full aspect-[4/3] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDImockJ3YgaQKfmRQ4cEFXmt_lSLXrNMIH-DA590METJ_ll4SxE3rlV0JYys5ftiNhiKH2GQE5_71Kpw-pQblS9kT6MaxX5AWRyA_cBpKYN7KaRS35NL3qTnVZc88sYsrJzeyFJfeVx4NJZLMbO3C16XE-jshYdsr44rhCu2o1Km9da8gyx6DbNiNPKg8J3Trd60nB9YUe-sFKxOuEVB8mlQqNbgJNt1EcwP5QoAxI-ArQqYrbuKogeGlj2rsw3r-Q57srFO8TzAM"/>
+<div class="p-6">
+<span class="font-label-sm text-label-sm text-secondary">LEKKI PHASE 1</span>
+<h5 class="font-headline-md text-[20px] text-primary mt-2">Sky Garden Dinner</h5>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-tertiary-container text-on-tertiary full-width">
+<div class="grid grid-cols-12 gap-gutter px-margin-desktop py-16 w-full max-w-container-max mx-auto">
+<div class="col-span-12 md:col-span-4">
+<span class="font-headline-lg text-headline-lg text-secondary mb-6 block">Naija Luxe</span>
+<p class="font-body-md text-body-md text-on-tertiary-container mb-8 max-w-xs">Redefining African luxury through meticulous craftsmanship and an unwavering commitment to Nigerian heritage.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 flex items-center justify-center rounded-full border border-outline-variant hover:border-secondary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-full border border-outline-variant hover:border-secondary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-full border border-outline-variant hover:border-secondary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">mail</span>
+</a>
+</div>
+</div>
+<div class="col-span-6 md:col-span-2">
+<h5 class="font-label-lg text-label-lg text-white mb-6 uppercase tracking-wider">The Boutique</h5>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary-fixed transition-all" href="#ankara">Ankara Dresses</a></li>
+<li><a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary-fixed transition-all" href="#baby">Baby Collection</a></li>
+<li><a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary-fixed transition-all" href="#perfume">Fine Fragrance</a></li>
+<li><a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary-fixed transition-all" href="#hair">Premium Hair</a></li>
+</ul>
+</div>
+<div class="col-span-6 md:col-span-2">
+<h5 class="font-label-lg text-label-lg text-white mb-6 uppercase tracking-wider">Services</h5>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary-fixed transition-all" href="#">Bespoke Couture</a></li>
+<li><a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary-fixed transition-all" href="#events">Event Planning</a></li>
+<li><a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary-fixed transition-all" href="#">Style Concierge</a></li>
+<li><a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary-fixed transition-all" href="#">Wholesale</a></li>
+</ul>
+</div>
+<div class="col-span-12 md:col-span-4">
+<h5 class="font-label-lg text-label-lg text-white mb-6 uppercase tracking-wider">Support &amp; Policies</h5>
+<div class="flex flex-wrap gap-x-8 gap-y-4 mb-8">
+<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary-fixed transition-all" href="#">Our Story</a>
+<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary-fixed transition-all" href="#">Contact Us</a>
+<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary-fixed transition-all" href="#">Shipping &amp; Returns</a>
+<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary-fixed transition-all" href="#">Privacy Policy</a>
+</div>
+<div class="pt-8 border-t border-outline-variant">
+<p class="font-label-sm text-label-sm text-on-tertiary-container">© 2024 Naija Luxe, by ETM. All rights reserved.</p>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Scroll Reveal Implementation
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth header shrinking
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-2', 'shadow-md');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.add('py-4');
+                header.classList.remove('py-2', 'shadow-md');
+            }
+        });
+
+        // Navigation Active State Update
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('header nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-primary', 'border-b-2', 'border-secondary', 'pb-1');
+                link.classList.add('text-on-surface-variant');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('text-primary', 'border-b-2', 'border-secondary', 'pb-1');
+                    link.classList.remove('text-on-surface-variant');
+                }
+            });
+        });
+    </script>
+</body></html>
